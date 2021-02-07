@@ -1,4 +1,7 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8">
   <style>
     html {
       background-color: white;
@@ -28,7 +31,8 @@
       background-color: lightgrey;
     }
   </style>
-  <body>
+</head>
+<body>
     <div class="form">
         <form name="login"  id="form" action="/login" method="post" onsubmit="return submitForm()">
          <fieldset>
@@ -52,7 +56,7 @@
         </form>
     </div>
     <div class="form">
-        <form id="form" action="/alta-dni" method="post" enctype="multipart/form-data" >
+        <form id="form2" action="/alta-dni" method="post" enctype="multipart/form-data" >
          <fieldset>
            <label class="form-field" for="dni-text">Número DNI</label>
            <input required minlength="5" class="form-field" id="dni-text" type="text"/>
@@ -61,8 +65,6 @@
           </fieldset>
         </form>
     </div>
-  </body>
-
   <script>
     const user = document.getElementById("user");
     const password = document.getElementById("password");
@@ -85,4 +87,5 @@
       document.login.submit();
     }
   </script>
+</body>
 </html>

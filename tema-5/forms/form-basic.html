@@ -1,5 +1,8 @@
+<!DOCTYPE html>
 <html>
-  <style>
+<head>
+    <meta charset="utf-8">
+    <style>
     html {
       background-color: white;
     }
@@ -28,7 +31,8 @@
       background-color: lightgrey;
     }
   </style>
-  <body>
+</head>
+<body>
     <div class="form">
         <form id="form">
          <fieldset>
@@ -51,9 +55,7 @@
           </fieldset>
         </form>
     </div>
-  </body>
-
-  <script>
+    <script>
     document.getElementById("form").addEventListener('submit', login);
     function login (event){
     	event.preventDefault()
@@ -61,5 +63,6 @@
       let password = document.getElementById("password").value;
       console.log("User " + user + " with password " + password +" tried to log in.")
     }
-  </script>
+    </script>
+</body>
 </html>
