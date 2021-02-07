@@ -1,5 +1,8 @@
 <html>
-  <style>
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Core</title>
+    <style>
     html {
       background-color: white;
     }
@@ -28,31 +31,30 @@
       background-color: lightgrey;
     }
   </style>
-  <body>
-    <div class="form">
-        <form name="login"  id="form" action="/login" method="post">
-         <fieldset>
+</head>
+<body>
+<div class="form">
+    <form name="login"  id="form" action="/login" method="post">
+        <fieldset>
             <div class="form-group">
-              <label class="form-field" for="user">Usuario</label>
+                <label class="form-field" for="user">Usuario</label>
             </div>
             <div class="form-group">
-              <input class="form-field" id="user" type="input"/>
+                <input class="form-field" id="user" type="input"/>
             </div>
-             <div class="form-group">
-              <label class="form-field" for="password">Password</label>
-             </div>
             <div class="form-group">
-              <input class="form-field" id="password" type="password"/>
-             </div>
-            <div class="form-group">
-              <input type="submit" class="login-btn" value="Login"/>
+                <label class="form-field" for="password">Password</label>
             </div>
-          </fieldset>
-        </form>
-    </div>
-  </body>
-
-  <script>
+            <div class="form-group">
+                <input class="form-field" id="password" type="password"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="login-btn" value="Login"/>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<script>
     const password = document.getElementById("password");
 
     //Accediendo al valor de password a través del objeto Event
@@ -68,4 +70,5 @@
    });
 
   </script>
+</body>
 </html>
