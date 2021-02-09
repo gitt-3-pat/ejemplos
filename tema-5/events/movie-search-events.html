@@ -94,7 +94,7 @@
   var results = [];
   searchForm.addEventListener("submit", function(event){
     event.preventDefault();
-    fetch(`http://www.omdbapi.com/?apikey=cc1014ca&s=${document.getElementById("search-input").value}`, {
+    fetch(`https://www.omdbapi.com/?apikey=cc1014ca&s=${document.getElementById("search-input").value}`, {
       headers: {
         Accept: 'application/json'
       },
