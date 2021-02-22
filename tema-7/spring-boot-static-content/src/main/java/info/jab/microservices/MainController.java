@@ -1,15 +1,27 @@
 package info.jab.microservices;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MainController {
+
+    @Autowired
+    private PostalCodeService postalCodeService;
+
+    @Autowired
+    private MadridCitiesService madridCitiesService;
 
     @GetMapping("/status")
     public ResponseEntity<String> status() {
@@ -34,6 +46,16 @@ public class MainController {
             return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
         }
         return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.UNAUTHORIZED);
+    }
+
+    @GetMapping("/postalcodes")
+    public List<String> getPostalCodes() {
+        return postalCodeService.getCodes();
+    }
+
+    @GetMapping("/cities")
+    public List<String> getCities() {
+        return madridCitiesService.getCities();
     }
 
 }
