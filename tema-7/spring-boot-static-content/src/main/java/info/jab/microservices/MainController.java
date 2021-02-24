@@ -1,17 +1,15 @@
 package info.jab.microservices;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,6 +20,9 @@ public class MainController {
 
     @Autowired
     private MadridCitiesService madridCitiesService;
+
+    @Autowired
+    private ExternalService externalService;
 
     @GetMapping("/status")
     public ResponseEntity<String> status() {
@@ -40,7 +41,14 @@ public class MainController {
             path="/login2",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> login2(@RequestBody LoginCredential2 loginParam) {
+    public ResponseEntity<String> login2(
+            @Valid @RequestBody LoginCredential2 loginParam,
+            BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>("{\"result\" : \"KO\"}", HttpStatus.BAD_REQUEST);
+        }
+
         if ((loginParam.getUser().equals("DEMO")) &&
             (loginParam.getPassword().equals("DEMO"))) {
             return new ResponseEntity<>("{\"result\" : \"OK\"}", HttpStatus.OK);
@@ -56,6 +64,16 @@ public class MainController {
     @GetMapping("/cities")
     public List<String> getCities() {
         return madridCitiesService.getCities();
+    }
+
+    @GetMapping(path = "/rt", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String rt() {
+        return externalService.getData();
+    }
+
+    @GetMapping("/rt2")
+    public Example rt2() {
+        return externalService.getData2();
     }
 
 }
