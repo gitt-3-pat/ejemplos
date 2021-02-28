@@ -1,10 +1,10 @@
-package edu.icai.microservices.demo;
+package com.jab.microservices.actuator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class ActuatorApplicationTests {
 
 	@Test
 	void contextLoads() {
