@@ -11,8 +11,8 @@
 - [Tema 4: CSS](tema-4/README.md)
 - [Tema 5: Javascript](tema-5/README.md)
 - Tema 6: Estándares Jakarta EE
-- Tema 7: Spring Boot
-- Tema 8: Testing
+- [Tema 7: Spring Boot](tema-7/README.md)
+- [Tema 8: Testing](tema-8/README.md)
 
 ### Segunda parte:
 
